@@ -9,65 +9,79 @@ public class Starter {
         Integer num;
 
         ComsoleInput input = new ComsoleInput();
-
         ArrayList<Student> studentList = new ArrayList<Student>();
 
-/**
- * вводимо данні студенів
- * */
-//        count = input.inputByte("Введіть кількість студентів:");
-//        num = 1;
-//        while (count != 0) {
-//
-//            System.out.println("студент №" + num);
-//            Student student = new Student(input.inputString("Ім'я"), input.inputString("Прізвище"),
-//                    input.inputString("група"), input.inputByte("введіть номер групи:"), input.inputString("Факультет"));
-//            studentList.add(student);
-//            count--;
-//            num++;
-//            System.out.println("_______________________________\n");
-//        }
-
+        //test list
         studentList.add(new Student("denis", "yufa", "KSM", 3, "SP"));
         studentList.add(new Student("oleg", "boj", "KSM", 2, "SP"));
-        studentList.add(new Student("oleg", "vit", "RT", 4, "RP"));
+        studentList.add(new Student("sergey", "vit", "RT", 4, "RP"));
 
-        /**
-         * виводимо весь список
-         * */
-        viewList(studentList);
+        Scanner key = new Scanner(System.in);
 
+        System.out.println("(1)показати студентыв (2)додати студента (3)видалити студента");
+        while (key.hasNext()) {
+            System.out.println("(1)показати студентыв (2)додати студента (3)видалити студента");
+            switch (key.nextByte()) {
 
-/**
- * Пошук студента по імені та вдалення його
- * */
-        String SearchByName = input.inputString("Ведіть ім'я для пошуку: ");
-        ListIterator<Student> studentListIterator = studentList.listIterator();
-
-        for (Iterator<Student> it = studentList.iterator(); it.hasNext(); ) {
-            Student forDel = it.next();
-            String Word = forDel.getFirstName();
-            if (SearchByName.equals(Word)) {
-                it.remove();
+                case 1:
+                    System.out.println("\n\nсписок студентів");
+                    viewList(studentList);
+                    break;
+                case 2:
+                    addStudentTo(studentList);
+                    break;
+                case 3:
+                    removeStudentFrom(studentList);
+                    break;
+                default:
+                    return;
             }
 
         }
 
+        /**
+         * виводимо весь список
+         * */
 
 
+    }
 
-     System.out.println("\n\nпісля видалення");
-        viewList(studentList);
-
-
-
-
-
-}
+    public static void addStudentTo(ArrayList<Student> students) {
+        /**
+         * вводимо данні студенів
+         * */
 
 
+        ComsoleInput input = new ComsoleInput();
 
+        Student student = new Student(input.inputString("Ім'я"), input.inputString("Прізвище"),
+                input.inputString("група"), input.inputByte("введіть номер групи:"),
+                input.inputString("Факультет"));
+        students.add(student);
 
+        System.out.println("_______________________________\n");
+
+    }
+
+    public static void removeStudentFrom(ArrayList<Student> students) {
+        /**
+         * Пошук студента по імені та вдалення його
+         * */
+        ComsoleInput input = new ComsoleInput();
+        String SearchByName = input.inputString("Ведіть ім'я для пошуку: ");
+        ListIterator<Student> studentListIterator = students.listIterator();
+
+        for (Iterator<Student> it = students.iterator(); it.hasNext(); ) {
+            Student forDel = it.next();
+            String Word = forDel.getFirstName();
+            if (SearchByName.equals(Word)) {
+                System.out.println("студент " + Word + " видалений");
+                it.remove();
+            }
+        }
+//        System.out.println("\n\nсписок після видалення");
+//        viewList(studentList);
+    }
 
     public static void viewList(ArrayList<Student> inerlist) {
         int num = 1;
