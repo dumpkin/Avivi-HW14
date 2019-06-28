@@ -15,29 +15,28 @@ public class Starter {
 /**
  * вводимо данні студенів
  * */
-        count = input.inputByte("Введіть кількість студентів:");
-        num = 1;
-        while (count != 0) {
+//        count = input.inputByte("Введіть кількість студентів:");
+//        num = 1;
+//        while (count != 0) {
+//
+//            System.out.println("студент №" + num);
+//            Student student = new Student(input.inputString("Ім'я"), input.inputString("Прізвище"),
+//                    input.inputString("група"), input.inputByte("введіть номер групи:"), input.inputString("Факультет"));
+//            studentList.add(student);
+//            count--;
+//            num++;
+//            System.out.println("_______________________________\n");
+//        }
 
-            System.out.println("студент №" + num);
-            Student student = new Student(input.inputString("Ім'я"), input.inputString("Прізвище"),
-                    input.inputString("група"), input.inputByte("введіть номер групи:"), input.inputString("Факультет"));
-            studentList.add(student);
-            count--;
-            num++;
-            System.out.println("_______________________________\n");
-        }
+        studentList.add(new Student("denis", "yufa", "KSM", 3, "SP"));
+        studentList.add(new Student("oleg", "boj", "KSM", 2, "SP"));
+        studentList.add(new Student("oleg", "vit", "RT", 4, "RP"));
 
         /**
          * виводимо весь список
          * */
         viewList(studentList);
-//        Iterator<Student> iter = studentList.iterator();
-//        num = 1;
-//        while (iter.hasNext()) {
-//            System.out.println("студент:" + num + ' ' + iter.next());
-//            num++;
-//        }
+
 
 /**
  * Пошук студента по імені та вдалення його
@@ -47,22 +46,24 @@ public class Starter {
 
         for (Iterator<Student> it = studentList.iterator(); it.hasNext(); ) {
             Student forDel = it.next();
-            String Word = studentListIterator.next().getFirstName();
-            System.out.println("name " + Word);
+            String Word = forDel.getFirstName();
+            if (SearchByName.equals(Word)) {
+                it.remove();
+            }
+
         }
-    }
 
 
-//        while (studentListIterator.hasNext()) {
-//            if (studentListIterator.next().getFirstName().equals(SearchByName)) {
-//                studentListIterator.remove();
-//            }
-//
-//        }
 
-//        System.out.println("\n\nпісля видалення");
-//        viewList(studentList);
-//        }
+
+     System.out.println("\n\nпісля видалення");
+        viewList(studentList);
+
+
+
+
+
+}
 
 
 

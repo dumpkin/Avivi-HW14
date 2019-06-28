@@ -5,10 +5,10 @@ public class Student {
     private String firstName;
     private String secondName;
     private String group;
-    private byte course;
+    private int course;
     private String faculty;
 
-    public Student(String firstName, String secondName, String group, byte course, String faculty) {
+    public Student(String firstName, String secondName, String group, int course, String faculty) {
         this.firstName = firstName;
         this.secondName = secondName;
         this.group = group;
@@ -40,11 +40,11 @@ public class Student {
         this.group = group;
     }
 
-    public byte getCourse() {
+    public int getCourse() {
         return course;
     }
 
-    public void setCourse(byte course) {
+    public void setCourse(int course) {
         this.course = course;
     }
 
