@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class ComsoleInput {
 
     byte inputByte(String line) {
-        System.out.print(line+" ");
+        System.out.print(line + " ");
 
         Scanner sc = new Scanner(System.in);
         if (sc.hasNextByte()) {

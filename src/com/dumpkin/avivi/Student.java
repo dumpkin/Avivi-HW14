@@ -59,6 +59,6 @@ public class Student {
     @Override
     public String toString() {
         return firstName + ' ' + secondName + " студент " +
-                course + " курсу, групи " + group + " факультету " + faculty+'\n';
+                course + " курсу, групи " + group + " факультету " + faculty + '\n';
     }
 }
