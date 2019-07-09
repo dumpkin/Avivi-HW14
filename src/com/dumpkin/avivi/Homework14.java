@@ -2,7 +2,7 @@
 
 package com.dumpkin.avivi;
 
-public class homework14 {
+public class Homework14 {
 
 /*
 * Написати клас Student (описати його поля, конструктори, гетери, сетери, toString)
